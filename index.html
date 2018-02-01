@@ -1,0 +1,17 @@
+<script>
+var clickMe = document.getElementById('clickMe');
+
+clickMe.addEventListener('click', function() {
+  console.log('I was clicked');
+}, true);
+
+setTimeout(function() {
+  var event = new MouseEvent('click'),
+    canceled = !clickMe.dispatchEvent(event);
+
+  if (canceled) {
+    console.log('Click event was canceled');
+  }
+}, 5000);
+<div id="clickMe">Click Me</div>
+</script>
